@@ -1,0 +1,246 @@
+\documentclass[a4paper,14pt]{report}
+%\documentclass[a4paper,14pt]{extarticle}
+\renewcommand{\baselinestretch}{1}
+\renewcommand{\figurename}{Рисунок} 
+\usepackage{ntheorem}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{setspace}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{hyperref}
+%\usepackage[linesnumbered,boxed]{algorithm2e}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage[justification=centering]{caption}
+\usepackage{amsmath}
+
+
+\newcommand{\ru}{\mathcal{R}_u}
+\newcommand{\rt}{\mathcal{R}_i}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\rh}{\overline{\rho}}
+\newcommand{\rhu}{\mathcal{\rho}_u}
+\newcommand{\rhi}{\mathcal{\rho}_i}
+\newcommand{\di}{\mathcal{\delta}_i}
+\newcommand{\du}{\mathcal{\delta}_u}
+\newcommand{\dc}{\mathcal{\delta}_c}
+%\newcommand{\nip}{{\overset{i}{\mathcal{N}_p}}     }
+%\newcommand{\nup}{{\overset{u}{\mathcal{N}_p}}     }
+%\newcommand{\nit}{{\overset{i}{\mathcal{N}_{topN}}}}
+%\newcommand{\nut}{{\overset{u}{\mathcal{N}_{topN}}}}
+%\newcommand{\ec}{{\overset{c}{\mathcal{E}}}}
+%\newcommand{\eap}{{\overset{a}{\mathcal{E}_{p}}}}
+%\newcommand{\eat}{{\overset{a}{\mathcal{E}_{topN}}}}
+%\newcommand{\eit}{{\overset{i}{\mathcal{E}_{topN}}}}
+%\newcommand{\res}{\overline{T}^a_{\bot}}
+\newcommand{\test}{T^a_{\bot}}
+\newcommand{\midel}{\overline{\Delta}_{\rho}}
+
+
+\theoremstyle{plain}
+\newtheorem{myproof}{Доказательство}
+
+%% \newtheorem{thm}{Theorem}[section]
+%% \newtheorem{lem}[thm]{Lemma}
+%% \newtheorem{prop}[thm]{Proposition}
+%% \newtheorem*{cor}{Corollary}
+
+% \theoremstyle{plain}
+%% \newtheorem{thm}{Theorem}[section]
+%% \newtheorem{lem}[thm]{Lemma}
+%% \newtheorem{prop}[thm]{Proposition}
+%% \newtheorem*{cor}{Corollary}
+
+% \theoremstyle{definition}
+%\setcounter{section}{0}
+%% \newcommand{\mychapter}[1]{
+%%     \setcounter{chapter}{#1}
+%%     \setcounter{section}{1}
+%%     \chapter*{#1}
+%%     \addcontentsline{toc}{chapter}{#1}
+%% }
+%% \newcounter{assert}[subsection] 
+%% \newcommand{\a}{\par \addtocounter{assert}{1}% 
+%% \textbf{Утверждение \arabic{zadacha}}} 
+
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+%% \newtheorem{defn}{Определение}{indent}%[thesubsection]
+
+\theoremstyle{break}
+\newtheorem{assert}{Утверждение}
+\newtheorem{assertSRS}{Утверждение СРС}
+\newtheorem{assertORS}{Утверждение ОРС}
+\newtheorem{assertNON}{}
+
+%% \newtheorem{assert-plain}{indent}{Утверждение}%[thesubsection]
+\newtheorem{exmp}{Example}%[thesection]
+
+% \usepackage{alltt}
+%% \makeatletter
+%% \renewcommand{\@biblabel}[1]{#1.} % СпиСОМ литературы: `[1]' => `1.'
+%% \makeatother
+\renewcommand{\contentsname}{Оглавление}
+%% % \theoremstyle{plain}% default
+%% \newtheorem{thm}{Теорема}
+%% \newtheorem{ax}{Аксиома}
+%% \newtheorem{prop}{Доказательство Теоремы}
+%% \@addtoreset{equation}{section} % Счетчик формул
+
+% \tableofcontents
+%\usepackage{geometry} % Меняем поля страницы
+%\geometry{left=2.2cm}% левое поле
+%\geometry{right=2.2cm}% правое поле
+%\geometry{top=1.9cm}% верхнее поле
+% Чтобы убрать Гадава N
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{30\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \interlinepenalty\@M
+    \large \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{30\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \large \bfseries  #1\par\nobreak
+    \vskip 20\p@
+  }}
+\makeatother
+
+
+\begin{document}
+\input{title}
+
+% \tableofcontents
+
+%% \begin{center}
+%% ОБЩАЯ ХАРАКТЕРИСТИКА РАБОТЫ
+%% \end{center}
+\begin{center}
+ОБЩАЯ ХАРАКТЕРИСТИКА РАБОТЫ
+\end{center}
+
+%% {\bf Область исследований}.
+%% Область исследований, к которой относится диссертационная работа,--- коллаборативные модели рекомендательных систем (далее РС),
+%% анализ решения основных задач РС в этих системах, анализ способов оценки эффективности решения, разработка программного обеспечения, 
+%% реализующего данные модели, а также исследование математических областей, принадлежащих Data Mining и использующихся в РС, 
+%% искусственном интеллекте и теории принятия решений.
+\input{intro.tex}
+
+\begin{center}
+ОСНОВНОЕ СОДЕРЖАНИЕ РАБОТЫ
+\end{center}
+
+{\underline {\bf Во введении}} обосновывается актуальность научной работы,
+сформулированы цель, задачи исследования и основные положения, выносимые на
+защиту,
+перечислены полученные научные результаты, приведены
+сведения о практической ценности и новизне работы.\\
+%\section{Первая глава}
+%{\underline {\bf В первой главе}}
+
+
+\input{first.tex}
+\input{second.tex}
+\input{third.tex}
+\input{fourth.tex}
+
+
+\underline{\bf Выводы}
+В ходе диссертационного исследования были решены поставленные задачи.
+\begin{enumerate}
+	\item заданы критерии оценки эффективности моделей РС;
+	\item проведен анализ эффективности АКМ по
+		заданным критериям, в результате чего определены достаточные условия, при
+		выполнении которых АКМ гарантируют получение
+		эффективного решения по критерию качества, и показано, что в общем
+		случае АКМ неэффективны по определенным критериям;
+	\item определена математическая модель НРС, в которой:
+		\begin{enumerate}
+			\item методы решений задач АКМ дают большую эффективность,
+				что достигается за счет выполнения выведенных
+				достаточных условий в НРС;
+
+			\item разработан формальный способ определения прогнозной функции
+				$\rh$, основанный на введении нечеткого отображения
+				$\Psi: U \rightarrow I$;
+
+			\item разработаны алгоритмы решения задач, обладающие меньшей
+				асимптотической сложностью по сравнению с алгоритмами
+				решений, используемыми в АКМ.
+				Разработанные алгоритмы будут гарантировать эффективное
+				решение независимо от таких дополнительных условий,
+				как свойства исходных данных и выполнение
+				эвристических утверждений. Разработанные алгоритмы обладают
+				большей эффективностью по определенным критериям, чем алгоритмы
+				АКМ;
+
+		\end{enumerate}
+	\item разработано ПО для проведения тестирования;
+	\item проведено тестирование, результаты которого подтверждают
+		теоретические выводы.
+\end{enumerate}
+
+Опубликованные статьи:
+\begin{enumerate}
+% печатный
+\item Понизовкин Д. М.
+Оптимальное распределение проектов при проведении экспертизы / Д. М. Понизовкин, С. А. Амелькин //
+Электронные библиотеки: Перспективные Методы и Технологии,
+Электронные коллекции. --- 2010. --- С. 524-525.
+% электронный, ВАК
+\item Понизовкин Д. М. Построение оптимального графа связей в системах коллаборативной фильтрации / Д. М. Понизовкин, С. А. Амелькин //
+Программные системы: теория и приложения. 2011.--- Т. 2. --- № 4. С. 107–114
+% электронный, ВАК
+\item Понизовкин Д. М. Математическая модель коллаборативных процессов принятия решений //
+Программные системы: теория и приложения. 2011. --- Т. 2. --- № 4. С 95-99.
+% электронный
+\item Амелькин С. А, Д. М. Понизовкин. Оптимальное проведение экспертизы образовательных процессов / С. А. Амелькин, Д. М. Понизовкин //
+Труды XVII Всероссийской научно-методической конференции Телематика’2010,
+Санкт-Петербург: Университетские телекоммуникации. --- 2010. ---
+Т. 1, С. 158-159.
+% электронный, ВАК
+\item Д. М. Понизовкин. Влияние меры сходства на результативность РС // Программные системы: теория и приложения, 2014. --- Т. 2. --- N. 5. С 55–65.
+% печатный, ВАК
+\item С. А. Амелькин, Д. П. Понизовкин. Математическая модель задачи $topN$ для
+	контентных рекомендательных систем //
+Известия МГТУ МАМИ, Т. 2 , c. 26–31
+
+% Печатный, ВАК
+\item Д. М. Понизовкин.
+	Повышение качества решения задачи $topN$ коллаборативными рекомендательными
+	системами
+	//
+	Современная наука: актуальные проблемы теории и практики.
+	Серия естественные и технические науки. 2017 ---
+	Т. 7-8. --- с 62-67.
+% Электронный web of science
+\item Д. М. Понизовкин.
+		Модель рекомендательной системы на нечетких множествах
+		как эффективное расширение коллаборативной модели//
+		Data Analytics and Management in Data Intensive Domains:
+		Collection of Scientific Papers of the XIX International
+		Conference DAMDID / RCDL’2017 (October 10–13, 2017, Moscow, Russia),
+		2017. - c 118-123/
+\end{enumerate}
+
+\end{document}
+
